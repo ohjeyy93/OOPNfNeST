@@ -1,4 +1,9 @@
 class depthval:
+    #########################
+    #### this is where filtered spread file is used 
+    #### along with DP and DP4 from to filter out variants
+    #### that does not have DP4 or DP information
+    ###########
 
     def __init__(self, filtered_path):
         self.filtered_path = filtered_path
@@ -38,7 +43,15 @@ class depthval:
                     tempgeneval1 = word
                 if count == 2:
                     tempposval1 = word
+                #print(tempgeneval1,tempposval1)
+            #print(tempword)
+            #print(tempword2)
+            #print(tempgeneval1,tempposval1)
+            #print(tempword)
+            #print(tempword2)
+            #print(tempgeneval1,tempposval1)
             if len(tempword) == 4:
+                #print(tempgeneval1,tempposval1)
                 for x in range(len(tempword)):
                     tempsumall += int(tempword[x])
                     if x > 1:
@@ -46,6 +59,7 @@ class depthval:
                 # if tempsumalt>=tempsumall:
                 #    print(tempsumalt)
                 #    print(tempsumall)
+                #print(tempgeneval1,tempposval1)
                 DepthVal[tempgeneval1, tempposval1] = [tempsumalt / tempsumall]
                 DepthVal2[tempgeneval1, tempposval1] = [tempsumalt / tempsumall]
                 if len(tempword22) == 1 and len(tempword3) == 2:
@@ -58,8 +72,9 @@ class depthval:
             if len(tempword) == 1 and len(tempword2) == 2:
                 # print(tempword2[1])
                 # print(tempword[0])
-                # print(tempword)
-                # print(tempword2)
+                #print(tempword)
+                #print(tempword2)
+                #print(tempgeneval1,tempposval1)
                 DepthVal[tempgeneval1, tempposval1] = [int(tempword2[1]) / int(tempword[0])]
                 DepthVal3[tempgeneval1, tempposval1] = [int(tempword2[1]) / int(tempword[0])]
         return DepthVal, DepthVal3

@@ -77,6 +77,7 @@ def main(arguments):
     grpa=GPRA(filtered_path)
     Genelist1,POSlist1,Reflist1,Altlist1,currentag1=grpa.GPRAPROCESS(AAdic)
     #print(Genelist1,Reflist1,POSlist1,Altlist1)
+    #print(POSlist1)
     ##########################################################################################
     #####Second class (Get depths) ##########################
     #####Obtain the base depths of different position and pair them up with Gene and Position of variants######
@@ -107,8 +108,9 @@ def main(arguments):
 
     ######FIFTH class wholefilnum1###################
     wholefilnum1=wholefilnums(filtered_path)
-    wholefilnumsxlist1, wholefilnumslist1 = wholefilnum1.wholefilnumsprocess()
+    wholefilnumsxlist1, wholefilnumslist1 = wholefilnum1.wholefilnumsprocess(AAdic)
     #print(wholefilnumsxlist1)
+    #print(wholefilnumslist1)
     ##################################################
 
 
@@ -171,6 +173,7 @@ def main(arguments):
     filteredDP4list1, combinedGenePOSlist1,filteredAGlist2, filteredADlist1) = filteredlists1.filteredlistsprocess(Genelist2, POSlist2, Reflist2, Altlist2, BASEAAPOSdic1, combineddflist1,combineddflist2, 
     currentag2, depthlist2up, AFlist1, testdicttransAA1, dicttransAA1, DP4list1, ADlist1, QDlist1, SORlist1, MQlist1, 
     MQRankSumlist1, filterscorelist1, Descriptionlist1, codondepthlist2)
+    #print(filteredAAlist21,filteredAAlist22)
     #print(filteredAAlist22)
     
 
@@ -188,15 +191,18 @@ def main(arguments):
     filteredAAlist22, filteredAAPoslist12, filteredcodondepthlist2, filteredAFlist1, filteredmutationlist1, filteredQDlist1, filteredSORlist1,
     filteredMQlist1, filteredMQRankSumlist1, filteredfilterscorelist1, filteredDescriptionlist1, filteredcandidateslist1, filteredreportablelist1,
     filteredDP4list1, tempcovwordlist1, combinedGenePOSlist1, testdicttransAA1, dicttransAA1, wholepotlist1, wildic1 ,posdiclist1)
-
+    #print(filteredAAlist212,filteredAAlist222)
     #print(filteredAAlist222)
+    print(testdicttransAA1["mitochondrial_genome"])
+    print(dicttransAA1["mitochondrial_genome"])
 
     ######18th classs candidates/reportables##############
     candirepo1 = candirepo()
     filteredcandidateslist12, filteredreportablelist12 = candirepo1.candirepoprocess(filteredGenelist22,filteredAAPoslist122,filteredAAlist212,filteredAAlist222,df1AAPos,df1RefAA,df1AltAA,df2AAPos, df2RefAA, df2AltAA, df2Gene, df1Gene)
     #print(filteredcandidateslist12)
-
-
+    #print(Genelist1)
+    #print(POSlist1)
+    #print(filteredAAPoslist12)
     ######19th classs candidates/reportables##############
     finaldoutput1 = finaldoutput(name)
     finaldoutput1.finaldoutputprocess(filteredGenelist22,filteredPoslist22,filtereddepthlist2up2,filteredAGlist12,filteredReflist22,filteredAltlist22

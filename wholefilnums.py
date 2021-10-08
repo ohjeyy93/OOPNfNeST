@@ -4,32 +4,7 @@ class wholefilnums:
         self.filtered_path = filtered_path
         return
 
-    def wholefilnumsprocess(self):
-        AAdic = {
-                "Ala": "A",
-                "Arg": "R",
-                "Asn": "N",
-                "Asp": "D",
-                "Asx": "B",
-                "Cys": "C",
-                "Glu": "E",
-                "Gln": "Q",
-                "Glx": "Z",
-                "Gly": "G",
-                "His": "H",
-                "Ile": "I",
-                "Leu": "L",
-                "Lys": "K",
-                "Met": "M",
-                "Phe": "F",
-                "Pro": "P",
-                "Ser": "S",
-                "Thr": "T",
-                "Trp": "W",
-                "Tyr": "Y",
-                "Val": "V",
-                "STOP": "STOP",
-            }
+    def wholefilnumsprocess(self, AAdic):
         f3 = open(self.filtered_path, "r")
 
         wholefilnumsx = []
@@ -59,6 +34,19 @@ class wholefilnums:
                             wholefilnumsx += [tempnum]
                             wholefilnums += [
                                 word[word.find("c.") : word.find(tempnum) + len(tempnum)]
+                            ]
+                    if word.startswith("n."):
+                        if word.find("*") != -1:
+                            wholefilnumsx += [tempnum]
+                            # print(word[word.find("c.*"):word.find(tempnum)+len(tempnum)])
+                            wholefilnums += [
+                                word[word.find("n.*") : word.find(tempnum) + len(tempnum)]
+                            ]
+                        elif word.find("*") == -1:
+                            # print(word[word.find("c.*"):word.find(tempnum)+len(tempnum)])
+                            wholefilnumsx += [tempnum]
+                            wholefilnums += [
+                                word[word.find("n.") : word.find(tempnum) + len(tempnum)]
                             ]
                     if word.startswith("p."):
                         # print(word[5+len(temppos):5+len(temppos)+3])

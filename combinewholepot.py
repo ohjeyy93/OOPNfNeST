@@ -88,6 +88,9 @@ class combinewholepot:
                     # print([dicttransAA1[y[0]][int(y[1])-1]])
                     filteredAAlist212 += [testdicttransAA1[y[0]][int(y[1]) - 1]]
                     filteredAAlist222 += [dicttransAA1[y[0]][int(y[1]) - 1]]
+                    #print(y[0],y[1])
+                    #print([testdicttransAA1[y[0]][int(y[1]) - 1]])
+                    #print([dicttransAA1[y[0]][int(y[1]) - 1]])
                     filteredAGlist12 += ["NA"]
                     filteredAAPoslist122 += [y[1]]
                     filteredcodondepthlist22 += ["NA"]

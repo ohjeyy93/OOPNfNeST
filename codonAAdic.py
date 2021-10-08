@@ -28,7 +28,7 @@ class codonAAdic:
         "Trp": "W",
         "Tyr": "Y",
         "Val": "V",
-        "STOP": "STOP",
+        "STOP": "X",
         }
 
         currentcodon = ""

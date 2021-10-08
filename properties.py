@@ -23,6 +23,7 @@ class properties:
         for line in f2:
             count = 0
             tempDP4list = []
+            #print(line)
             for word in line.split():
                 # print(line)
                 # print(Genelist1[x])
@@ -76,6 +77,9 @@ class properties:
                             # print(word)
                             # print(POSlist1[x])
                             # if word == POSlist1[x]: print("yes")
+                            #print(word1,word)
+                            #print(Genelist1[x],POSlist1[x])
+                            #print(DepthVal)
                             if (
                                 word1 == Genelist1[x]
                                 and word == POSlist1[x]
@@ -90,6 +94,7 @@ class properties:
                                 # print("test"+POSlist1[x])
                                 # print(Genelist1[x],POSlist1[x])
                                 Genelist2 += [Genelist1[x]]
+                                #print(POSlist1[x])
                                 POSlist2 += [POSlist1[x]]
                                 currentag2 += [currentag1[x]]
                                 GenePosSet1 += [[Genelist1[x], POSlist1[x]]]
