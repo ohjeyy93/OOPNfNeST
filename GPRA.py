@@ -5,7 +5,7 @@ class GPRA:
         self.filtered_path = filtered_path
         return
 
-    def GPRAPROCESS(self):
+    def GPRAPROCESS(self, AAdic):
         #print(self.filtered_path)
 
         AAdic = {
@@ -140,4 +140,4 @@ class GPRA:
                         if word.startswith("c.") or word.startswith("n."):
                             Altlist1+=[word[-1]]
                         count+=1
-        return Genelist1,POSlist1,Reflist1,Altlist1
+        return Genelist1,POSlist1,Reflist1,Altlist1,currentag1
