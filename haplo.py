@@ -12,10 +12,11 @@ parser.add_argument('-f', dest='snpfilter', type=str, help="snpfilter output")
 parser.add_argument('-voi', dest='voifile',type=str,help="voi files")
 parser.add_argument('-d',dest='directory',type=str, help="snpfilter output")
 parser.add_argument('-cod', dest='cutoff_dir', type=str, help="cutoff files directory")
+parser.add_argument('-o', dest='output', type=str, help="name of output")
 args = parser.parse_args()
 all_df=pd.DataFrame()
 
-for a in glob.glob("SRR11867643.csv"):
+for a in glob.glob(args.snpfilter):
        if not a.startswith("list"):
               name=a.split(".csv")[0]
               a=pd.read_csv(a)
@@ -86,6 +87,7 @@ pd.to_numeric(haplo.VAF,errors='coerce')
 haplo=haplo[haplo.VAF >= 0.95]
 haplo.AAPOS=haplo.AAPOS.astype('int')
 haplo=haplo.drop_duplicates()
+#print(haplo['Sample name'])
 h=haplo.pivot_table(columns=['Reportable mutation'],values='AAalt',index=['Sample name','Gene'],aggfunc='first')
 h=h.sort_index()
 h.columns=h.columns.sort_values()
@@ -105,4 +107,4 @@ h_reset=h.reset_index()
 haplo_table=pd.merge(summary,h_reset,on=["Sample name","Gene"])
 haplo_table=haplo_table[['Sample name','Gene','haplotype']]
 haplo_table=haplo_table.drop_duplicates()
-haplo_table.to_csv("haplotype.csv")
+haplo_table.to_csv(args.output+"_haplo.csv")
