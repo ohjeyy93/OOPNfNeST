@@ -53,13 +53,17 @@ class codondepthlist:
                             codondepthlist1 += [int(tempcodondepthlist1 / 3)]
                             break
                         if Genelist1[x] == "PfMDR1":
+                            #print(y)
+                            #print(len(depthlist1))
+                            #print(depthlist1[y+1])
                             # for z in range(len(PfMDR1Startlist1)):
                             # if PfMDR1Startlist1[z]<int(depthlist1[y-1][2])<PfMDR1Endlist1[z]:
                             tempcodondepthlist1 += int(depthlist1[y - 1][2])
                             # if PfMDR1Startlist1[z]<int(depthlist1[y][2])<PfMDR1Endlist1[z]:
                             tempcodondepthlist1 += int(depthlist1[y][2])
                             # if PfMDR1Startlist1[z]<int(depthlist1[y+1][2])<PfMDR1Endlist1[z]:
-                            tempcodondepthlist1 += int(depthlist1[y + 1][2])
+                            if y<len(depthlist1)-1:
+                                tempcodondepthlist1 += int(depthlist1[y + 1][2])
                             codondepthlist1 += [int(tempcodondepthlist1 / 3)]
                         if Genelist1[x] == "DHPS":
                             # for z in range(len(PfDHPSStartlist1)):
