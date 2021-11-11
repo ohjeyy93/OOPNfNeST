@@ -48,6 +48,7 @@ class posdicwi:
                         if [bedname1[x], str(AAcount)] in wholepotlist1:
                             # print(bedname1[x])
                             if bedname1[x] == "PfCRT":
+                                #print(bedname1[x],AAcount,z)
                                 posdic1[bedname1[x], str(AAcount)] = z - 2
                             if bedname1[x] == "DHPS":
                                 # if
@@ -64,6 +65,7 @@ class posdicwi:
         ######################################################################
         # for x in wholepotlist1:
         wildic1 = {}
+        #print(depthlist1)
         for x in wholepotlist1:
             # print(x)
             for y in depthlist1:
@@ -76,6 +78,7 @@ class posdicwi:
                 #    print(x[1])
                 #        print("True")
                 # print(y[1])
+                #print(posdic1["PfCRT", "371"])
                 if x[0] == y[0] and str(posdic1[x[0], x[1]]) == y[1]:
                     # print(posdic1[x[0],x[1]])
                     # if x[0]=="mitochondrial_genome":

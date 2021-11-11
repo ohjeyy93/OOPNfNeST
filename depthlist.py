@@ -18,6 +18,7 @@ class depthlist:
         )
         depthlist1 = []
         for row in reader:
+            #print(row)
             if row[2] != "0":
                 # print(row)
                 depthlist1 += [row]

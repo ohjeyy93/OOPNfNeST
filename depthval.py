@@ -25,8 +25,11 @@ class depthval:
             tempsumalt = 0
             tempgeneval1 = ""
             tempposval1 = ""
+            currenttool=""
             for word in line.split():
                 count += 1
+                if count ==7:
+                    currenttool=word
                 if count == 8:
                     for x in word.split(","):
                         tempword += [x]
@@ -69,11 +72,15 @@ class depthval:
                     DepthVal3[tempgeneval1, tempposval1] = [
                         int(tempword3[1]) / int(tempword22[0])
                     ]
+            if currenttool=="Freebayes":
+                #print(tempword)
+                DepthVal[tempgeneval1, tempposval1] = tempword
             if len(tempword) == 1 and len(tempword2) == 2:
                 # print(tempword2[1])
                 # print(tempword[0])
                 #print(tempword)
                 #print(tempword2)
+                #print(line)
                 #print(tempgeneval1,tempposval1)
                 DepthVal[tempgeneval1, tempposval1] = [int(tempword2[1]) / int(tempword[0])]
                 DepthVal3[tempgeneval1, tempposval1] = [int(tempword2[1]) / int(tempword[0])]

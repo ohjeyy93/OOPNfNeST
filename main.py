@@ -1,40 +1,51 @@
-#1Generate POS/ALT/GENE/REF
+####This is the main pyton script for running NfNeST. This automatically imports different steps of analyzing SNP####
 
-#2SAMTOOLS Depth figure out
+###Main steps for the SNP analysis Pipeline ######
+
+#1Generate POS/ALT/GENE/REF (Position of SNP, alternate base, name of Sample, reference base)
+
+#2 SAMTOOLS Depth figure out (Figure out depth of the SNP like how many reads)
 
 #3 DepthVal
 
-#4 Genelist2/CurrentPOS2/GENE2/REF2/ALT2
+#4 Genelist2/CurrentPOS2/GENE2/REF2/ALT2 (Filter Position, alternate base, name of sample, reference base based on "spread" and "final VCF")
 
-#5 AF/MQ/QD/MQRankSUM/SOR
+#5 AF/MQ/QD/MQRankSUM/SOR (Figure out more information about alleles)
 
-#6 filter number filter score
+#6 filter number filter score (Add filter for quality of the SNP. Also, add explanation for the filter quality)
 
-#7 dicttrans1
+#7 dicttrans1 (Translate to obtain the CDS region and amino acid sequence part 1)
 
-#8 dicttrans2
+#8 dicttrans2 (Translate to obtain the CDS region and amino acid sequence part 2)
 
-#9 coverage
+#9 coverage (Find the coverage for the genes for each samples)
 
-#10 filterlists
+#10 filterlists (Final lists for wildtypes and mutations)
 
-#11 filteredlists2
+#11 filteredlists2 (Final lists for wildtypes and mutations)
 
-#12 
 
+###### Import python libraries and scripts #####
 import argparse
 import pandas as pd
 import subprocess
 import csv
 import itertools
+###### Import dictionary for combination of bases to amino acid and combination of amino acids to codons###########
 from codonAAdic import codonAAdic
+###### Import script for Gene name, Position, Reference, Alternate bases #######
 from GPRA import GPRA
+###### Import script for finding depths for different positions of bases for each genes ######
 from depthlist import depthlist
+##### Obtain the depth of codon of interest #####
 from codondepth import codondepthlist
+##### Obtain the depth value #######
 from depthval import depthval
 from wholefilnums import wholefilnums
+##### Obtain AF/MQ/QD/MQRankSUM/SOR ###### 
 from properties import properties
 from filterdes import filterdes
+##### Build a dictionary for candidates #####
 from candidates import candidates
 from combinedf import combinedf
 from bedrange import bedrange
@@ -193,8 +204,8 @@ def main(arguments):
     filteredDP4list1, tempcovwordlist1, combinedGenePOSlist1, testdicttransAA1, dicttransAA1, wholepotlist1, wildic1 ,posdiclist1)
     #print(filteredAAlist212,filteredAAlist222)
     #print(filteredAAlist222)
-    print(testdicttransAA1["mitochondrial_genome"])
-    print(dicttransAA1["mitochondrial_genome"])
+    #print(testdicttransAA1["mitochondrial_genome"])
+    #print(dicttransAA1["mitochondrial_genome"])
 
     ######18th classs candidates/reportables##############
     candirepo1 = candirepo()
@@ -211,11 +222,14 @@ def main(arguments):
         filteredreportablelist12)
     return(0)
 
+#########Set up parameters to run the command ##############
 def parse_arguments():
     parser = argparse.ArgumentParser(description="name")
+    #############Import final_vcf file########
     parser.add_argument(
         "-v1", dest="unfiltered_path", type=str, help="name of unfilterd merged vcf file"
     )
+    #############Import spread file#######
     parser.add_argument(
         "-v2", dest="filtered_path", type=str, help="name of filtered merged vcf file"
     )

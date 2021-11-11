@@ -5,6 +5,7 @@ class codonAAdic:
 
     def codonAAdicprocess(self):
         import itertools
+        ###### Assign letters to the amino acid names #########
         AAdic = {
         "Ala": "A",
         "Arg": "R",
@@ -30,7 +31,7 @@ class codonAAdic:
         "Val": "V",
         "STOP": "X",
         }
-
+        #######Convert combination of bases to a codon############
         currentcodon = ""
         keywords = ["".join(i) for i in itertools.product(["T", "G", "A", "C"], repeat=3)]
         codondic = {}
