@@ -26,7 +26,8 @@ class codondepthlist:
                             # if PfCRTStartlist1[z]<int(depthlist1[y][2])<PfCRTEndlist1[z]:
                             tempcodondepthlist1 += int(depthlist1[y][2])
                             # if PfCRTStartlist1[z]<int(depthlist1[y+1][2])<PfCRTEndlist1[z]:
-                            tempcodondepthlist1 += int(depthlist1[y + 1][2])
+                            if y<len(depthlist1)-1:
+                                tempcodondepthlist1 += int(depthlist1[y + 1][2])
                             # print(tempcodondepthlist1)
                             codondepthlist1 += [int(tempcodondepthlist1 / 3)]
                             break
