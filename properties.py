@@ -250,6 +250,7 @@ class properties:
                 # print(AFlist1)
                 # print(line)
                 if count == 7:
+                    #print(word)
                     if word1 != "":
                         # print(word)
                         if line.startswith("#") == False:

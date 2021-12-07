@@ -58,6 +58,7 @@ from posdicwi import posdicwi
 from combinewholepot import combinewholepot
 from candirepo import candirepo
 from finaldoutput import finaldoutput
+from extramnp import extramnp
 
 
 
@@ -111,6 +112,10 @@ def main(arguments):
     ##########################################################################################
     ##########################################################################################
 
+    extramnp1 = extramnp(filtered_path)
+    newlists1 = extramnp1.extramnpprocess()
+
+    
     ######Fourth class Depthval###################
     depthval1=depthval(filtered_path)
     depthvallist1, dpethvallist31=depthval1.depthvalprocess()
@@ -220,6 +225,7 @@ def main(arguments):
         ,filteredAAlist212,filteredAAlist222,filteredAAPoslist122,filteredcodondepthlist22,filteredDP4list12,filteredAFlist12,filteredmutationlist12,
         filteredQDlist12,filteredSORlist12,filteredMQlist12,filteredMQRankSumlist12,filteredfilterscorelist12,filteredDescriptionlist12,filteredcandidateslist12,
         filteredreportablelist12)
+
     return(0)
 
 #########Set up parameters to run the command ##############

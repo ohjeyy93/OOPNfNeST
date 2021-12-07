@@ -95,7 +95,9 @@ class GPRA:
                             #print(word)
                         if count==2:
                             Reflist1+=[word]
+                            #print(word)
                         if count==6:
+                            #print(word)
                             currentag1+=[word]
                         if word.startswith("c.") or word.startswith("n."):
                             Altlist1+=[word[-1]]

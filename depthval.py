@@ -29,17 +29,18 @@ class depthval:
             for word in line.split():
                 count += 1
                 if count ==7:
+                    #print(word)
                     currenttool=word
-                if count == 8:
+                if count == 9:
                     for x in word.split(","):
                         tempword += [x]
-                if count == 9 and len(tempword) == 1:
+                if count == 10 and len(tempword) == 1:
                     for x in word.split(","):
                         tempword2 += [x]
-                if count == 9 and len(tempword) == 4:
+                if count == 10 and len(tempword) == 4:
                     for x in word.split(","):
                         tempword22 += [x]
-                if count == 10 and len(tempword22) == 1:
+                if count == 11 and len(tempword22) == 1:
                     for x in word.split(","):
                         tempword3 += [x]
                 if count == 1:
