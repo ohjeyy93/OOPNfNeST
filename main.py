@@ -112,9 +112,6 @@ def main(arguments):
     ##########################################################################################
     ##########################################################################################
 
-    extramnp1 = extramnp(filtered_path)
-    newlists1 = extramnp1.extramnpprocess()
-
     
     ######Fourth class Depthval###################
     depthval1=depthval(filtered_path)
@@ -167,8 +164,18 @@ def main(arguments):
     ######12th classs dicttranstwo##############
     dicttranstwo1=dicttranstwo()
     dicttrans22,testdicttrans22, BASEAAPOSdic1=dicttranstwo1.dicttranstwoprocess(bedname1, dicttrans2, testdic, dictrange,GenePosSet2)
-    #print(dicttrans22)
 
+
+    #########consider MNP######
+    extramnp1 = extramnp(filtered_path,unfiltered_path)
+    newlists1 = extramnp1.extramnpprocess(bedname1, dicttrans2, testdic, dictrange)
+    ############################
+
+    
+    #print(dicttrans22)
+    #print(dicttrans22)
+    #print(GenePosSet2)
+    #print(BASEAAPOSdic1)
 
     ######13th classs dicttransAA##############
     dicttransAAlist1=dicttransAA()
