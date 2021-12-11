@@ -57,6 +57,7 @@ from filteredlists import filteredlists
 from posdicwi import posdicwi
 from combinewholepot import combinewholepot
 from candirepo import candirepo
+from finalpreoutput import finalpreoutput
 from finaldoutput import finaldoutput
 from extramnp import extramnp
 
@@ -96,6 +97,7 @@ def main(arguments):
     #####basically creating a dictionary
     depthpro=depthlist(name)
     depthlist1up,depthpair1,depthlist1=depthpro.depthprocess(Genelist1, POSlist1)
+    #print(depthpair1)
     #print(depthlist1up,depthpair1)
     #########################################
     #print(depthlist1up,depthpair1)
@@ -169,6 +171,7 @@ def main(arguments):
     #########consider MNP######
     extramnp1 = extramnp(filtered_path,unfiltered_path)
     newlists1 = extramnp1.extramnpprocess(bedname1, dicttrans2, testdic, dictrange)
+    #print(newlists1)
     ############################
 
     
@@ -227,11 +230,38 @@ def main(arguments):
     #print(POSlist1)
     #print(filteredAAPoslist12)
     ######19th classs candidates/reportables##############
+
+    ############################################################################################################
+    finalpreoutput1 = finalpreoutput(name)
+    filteredGenelist23,filteredPoslist23,filtereddepthlist2up3,filteredAGlist13,filteredReflist23,filteredAltlist23,filteredAAlist213,filteredAAlist223,filteredAAPoslist123,filteredcodondepthlist23,filteredDP4list13,filteredAFlist13,filteredmutationlist13,filteredQDlist13,filteredSORlist13,filteredMQlist13,filteredMQRankSumlist13,filteredfilterscorelist13,filteredDescriptionlist13,filteredcandidateslist13,filteredreportablelist13 = finalpreoutput1.finalpreoutputprocess(filteredGenelist22,filteredPoslist22,filtereddepthlist2up2,filteredAGlist12,filteredReflist22,filteredAltlist22
+    ,filteredAAlist212,filteredAAlist222,filteredAAPoslist122,filteredcodondepthlist22,filteredDP4list12,filteredAFlist12,filteredmutationlist12,
+    filteredQDlist12,filteredSORlist12,filteredMQlist12,filteredMQRankSumlist12,filteredfilterscorelist12,filteredDescriptionlist12,filteredcandidateslist12,
+    filteredreportablelist12,newlists1,AAdic)
+    ############################################################################################################
+    #print(len(filteredPoslist23))
+    #print(len(filtereddepthlist2up3))
+    #print(len(filteredAGlist13))
+    #print(len(filteredReflist23))
+    #print(len(filteredAltlist23))
+    #print(len(filteredAAlist213))
+    #print(len(filteredAAlist223))
+    #print(len(filteredAAPoslist123))
+    #print(len(filteredcodondepthlist23))
+    #print(len(filteredDP4list13))
+    #print(len(filteredAFlist13))
+    #print(len(filteredmutationlist13))
+    #print(len(filteredQDlist13))
+    #print(len(filteredSORlist13))
+    #print(len(filteredMQlist13))
+    #print(len(filteredMQRankSumlist13))
+    #print(len(filteredfilterscorelist13))
+    #print(len(filteredDescriptionlist13))
+    #print(len(filteredcandidateslist13))
+    #print(len(filteredreportablelist13))
+
     finaldoutput1 = finaldoutput(name)
-    finaldoutput1.finaldoutputprocess(filteredGenelist22,filteredPoslist22,filtereddepthlist2up2,filteredAGlist12,filteredReflist22,filteredAltlist22
-        ,filteredAAlist212,filteredAAlist222,filteredAAPoslist122,filteredcodondepthlist22,filteredDP4list12,filteredAFlist12,filteredmutationlist12,
-        filteredQDlist12,filteredSORlist12,filteredMQlist12,filteredMQRankSumlist12,filteredfilterscorelist12,filteredDescriptionlist12,filteredcandidateslist12,
-        filteredreportablelist12)
+    finaldoutput1.finaldoutputprocess(filteredGenelist23,filteredPoslist23,filtereddepthlist2up3,filteredAGlist13,filteredReflist23,filteredAltlist23,filteredAAlist213,filteredAAlist223,filteredAAPoslist123,filteredcodondepthlist23,filteredDP4list13,filteredAFlist13,filteredmutationlist13,
+    filteredQDlist13,filteredSORlist13,filteredMQlist13,filteredMQRankSumlist13,filteredfilterscorelist13,filteredDescriptionlist13,filteredcandidateslist13,filteredreportablelist13)
 
     return(0)
 

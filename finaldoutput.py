@@ -4,34 +4,33 @@ class finaldoutput:
         self.name=name
         return
 
-    def finaldoutputprocess(self,filteredGenelist22,filteredPoslist22,filtereddepthlist2up2,filteredAGlist12,filteredReflist22,filteredAltlist22
-        ,filteredAAlist212,filteredAAlist222,filteredAAPoslist122,filteredcodondepthlist22,filteredDP4list12,filteredAFlist12,filteredmutationlist12,
-        filteredQDlist12,filteredSORlist12,filteredMQlist12,filteredMQRankSumlist12,filteredfilterscorelist12,filteredDescriptionlist12,filteredcandidateslist12,
-        filteredreportablelist12):
+    def finaldoutputprocess(self,filteredGenelist23,filteredPoslist23,filtereddepthlist2up3,filteredAGlist13,filteredReflist23,filteredAltlist23,filteredAAlist213,filteredAAlist223,filteredAAPoslist123,filteredcodondepthlist23,filteredDP4list13,filteredAFlist13,filteredmutationlist13,
+        filteredQDlist13,filteredSORlist13,filteredMQlist13,filteredMQRankSumlist13,filteredfilterscorelist13,filteredDescriptionlist13,filteredcandidateslist13,
+        filteredreportablelist13):
         import pandas as pd
 
         d3 = {
-            "Gene": filteredGenelist22,
-            "BasePOS": filteredPoslist22,
-            "BaseDepth": filtereddepthlist2up2,
-            "Agreents": filteredAGlist12,
-            "Ref": filteredReflist22,
-            "Alt": filteredAltlist22,
-            "AAref": filteredAAlist212,
-            "AAalt": filteredAAlist222,
-            "AAPOS": filteredAAPoslist122,
-            "CodonCoverage": filteredcodondepthlist22,
-            "VAF(DP4)": filteredDP4list12,
-            "AF": filteredAFlist12,
-            "Mutation": filteredmutationlist12,
-            "QD": filteredQDlist12,
-            "SOR": filteredSORlist12,
-            "MQ": filteredMQlist12,
-            "MQRankSum": filteredMQRankSumlist12,
-            "Filter": filteredfilterscorelist12,
-            "FilterDescription": filteredDescriptionlist12,
-            "Candidates": filteredcandidateslist12,
-            "Reportable": filteredreportablelist12,
+            "Gene": filteredGenelist23,
+            "BasePOS": filteredPoslist23,
+            "BaseDepth": filtereddepthlist2up3,
+            "Agreents": filteredAGlist13,
+            "Ref": filteredReflist23,
+            "Alt": filteredAltlist23,
+            "AAref": filteredAAlist213,
+            "AAalt": filteredAAlist223,
+            "AAPOS": filteredAAPoslist123,
+            "CodonCoverage": filteredcodondepthlist23,
+            "VAF(DP4)": filteredDP4list13,
+            "AF": filteredAFlist13,
+            "Mutation": filteredmutationlist13,
+            "QD": filteredQDlist13,
+            "SOR": filteredSORlist13,
+            "MQ": filteredMQlist13,
+            "MQRankSum": filteredMQRankSumlist13,
+            "Filter": filteredfilterscorelist13,
+            "FilterDescription": filteredDescriptionlist13,
+            "Candidates": filteredcandidateslist13,
+            "Reportable": filteredreportablelist13,
         }
         df3 = pd.DataFrame(data=d3)
         # df.to_csv('snpreport4.csv', index=False,)
