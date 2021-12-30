@@ -60,52 +60,54 @@ class finalpreoutput:
         #print(len(filteredDP4list12))
         #print(len(filteredAFlist12))
 
-
+        #print(newlists1)
         for x in range(len(newlists1)):
             #print(x)
-            if x%8==0:
+            if x%9==0:
                 filteredGenelist23+=[newlists1[x]]
                 tempgene1=newlists1[x]
-            if x%8==1:
+                #print(tempgene1)
+            if x%9==1:
                 filteredPoslist23+=[newlists1[x]]
                 tempgenepos1=newlists1[x]
-            if x%8==1:    
+            if x%9==1:    
                 filtereddepthlist2up3+=[depthdic[tempgene1,str(tempgenepos1)]]
-            if x%8==1:
+            if x%9==1:
                 filteredAGlist13+=["Freebayes"]
-            if x%8==2:
+            if x%9==2:
                 filteredReflist23+=[newlists1[x]]
-            if x%8==3:
+            if x%9==3:
                 filteredAltlist23+=[newlists1[x]]
-            if x%8==5:
+            if x%9==5:
+                #print(newlists1)
                 filteredAAlist213+=[AAdic[newlists1[x]]]
-            if x%8==6:
+            if x%9==6:
                 filteredAAlist223+=[AAdic[newlists1[x]]]
-            if x%8==4:
+            if x%9==4:
                 filteredAAPoslist123+=[newlists1[x]]
-            if x%8==1:
+            if x%9==1:
                 filteredcodondepthlist23+=[int(depthdic[tempgene1,str(tempgenepos1-1)]+depthdic[tempgene1,str(tempgenepos1)]+depthdic[tempgene1,str(tempgenepos1+1)])/3]
-            if x%8==1:
+            if x%9==1:
                 filteredDP4list13+=["NA"]
-            if x%8==7:
+            if x%9==7:
                 #print([newlists1[x]])
                 filteredAFlist13+=[newlists1[x]]
-            if x%8==1:
+            if x%9==1:
                 filteredmutationlist13+=["NA"]
-            if x%8==1:    
+            if x%9==1:    
                 filteredQDlist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredSORlist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredMQlist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredMQRankSumlist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredfilterscorelist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredDescriptionlist13+=["NA,NA,NA,NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredcandidateslist13+=["NA"]
-            if x%8==1:
+            if x%9==1:
                 filteredreportablelist13+=["NA"]
         return filteredGenelist23,filteredPoslist23,filtereddepthlist2up3,filteredAGlist13,filteredReflist23,filteredAltlist23,filteredAAlist213,filteredAAlist223,filteredAAPoslist123,filteredcodondepthlist23,filteredDP4list13,filteredAFlist13,filteredmutationlist13,filteredQDlist13,filteredSORlist13,filteredMQlist13,filteredMQRankSumlist13,filteredfilterscorelist13,filteredDescriptionlist13,filteredcandidateslist13,filteredreportablelist13

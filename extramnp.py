@@ -44,8 +44,10 @@ class extramnp:
                         tempstate1="activated"
                 if count==3 and tempbases!="" and tempstate1=="activated":
                     tempmnp1=(word)
+                    #print(word)
                 if count==7 and tempbases!="" and tempstate1=="activated":
                     count1=0
+                    #print(word)
                     for item in word.split(","):
                         #print(item)
                         #print(float(item)>0)
@@ -57,22 +59,30 @@ class extramnp:
                             tempAF=item
                         count1+=1    
                     #print(tempmnp1.split(",")[POS1])
-                if count==32 and tempbases!="" and tempstate1=="activated":
+                #print(word)
+                if count==22 and tempbases!="" and tempstate1=="activated":
+                    #print(word)
                     protein1=word
                 count += 1
+            #print(POS1)
             if POS1!="":
                 #print(tempword,tempbases1,tempmnp1.split(",")[POS1],protein1)
                 for x in range(len(tempbases1)):
                     if tempbases1[x]!=tempmnp1.split(",")[POS1][x]:
+                        #print(list1)
                         list1+=[tempword,int(tempbase1)+x,tempbases1[x],tempmnp1.split(",")[POS1][x]]
             if list1!=[]:
                 if list1 not in totallist1:
                     #print(protein1)
                     #print(list1)
                     totallist1+=[list1]
+                    #print(proteinlist1)
                     proteinlist1+=[protein1]
                     tempaflist1+=[tempAF]
+        #print(proteinlist1)
         #print(tempaflist1)
+        #print(totallist1)
+        #print(proteinlist1)
         truelist1=[]
         trueproteinlist1=[]
         truetempaflist1=[]
@@ -87,11 +97,16 @@ class extramnp:
                     #print(line.split()[0])
                     #print(item[1])
                     #print(line.split()[1])
+                    #print(line)
                     if item[0] == line.split()[0] and item[1] == int(line.split()[1]):
                         truelist1=item
+                        #print(proteinlist1[count])
                         trueproteinlist1+=[proteinlist1[count]]
                         truetempaflist1+=[tempaflist1[count]]
             count+=1
+        #print(truelist1)
+        #print(truetempaflist1)
+        #print(trueproteinlist1)
         truelist2=[]
         for x in range(0,len(truelist1),2):
             #print(x)
@@ -103,6 +118,7 @@ class extramnp:
 
         #print(type(truelist3[0][0]),type(truelist3[0][1]))
         #print(truelist3)
+        #print(truelist2)
         BASEAAPOSdicMNP = {}
         for x in range(len(bedname1)):
             tempfa2 = ""
@@ -154,15 +170,21 @@ class extramnp:
         #print(basechangedic2)
         #print(BASEAAPOSdicMNP)
         #for item in trueproteinlist1:
+        #print(basechangedic2)
         newpos1=""
         prodict1={}
         testcount=0
         testcount2=0
         newpro1=""
+        #print(trueproteinlist1)
+        #print(trueproteinlist1)
         for word in trueproteinlist1:
+            #print(word)
+            newpos1=""
             for character in word:
                 if character.isdigit():
                     newpos1+=character
+            #print(newpos1)
             #print(word[2::].replace(newpos1,""))
             for character in word[2::].replace(newpos1,""):
                 testcount+=1
@@ -179,6 +201,7 @@ class extramnp:
         #print(prodict1)
         #print(finallist1)
         finallist1=[]
+        #print(prodict1)
         for item in BASEAAPOSdicMNP:
             #print(item)
             #print(basechangedic2[item[0],int(item[1])].split(",")[0].strip("\'").strip())
