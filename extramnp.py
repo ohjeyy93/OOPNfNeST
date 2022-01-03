@@ -60,7 +60,9 @@ class extramnp:
                         count1+=1    
                     #print(tempmnp1.split(",")[POS1])
                 #print(word)
-                if count==22 and tempbases!="" and tempstate1=="activated":
+                #if word.startswith(".p"):
+                    #print(word)
+                if word.startswith("p.") and tempbases!="" and tempstate1=="activated":
                     #print(word)
                     protein1=word
                 count += 1
@@ -68,15 +70,23 @@ class extramnp:
             if POS1!="":
                 #print(tempword,tempbases1,tempmnp1.split(",")[POS1],protein1)
                 for x in range(len(tempbases1)):
-                    if tempbases1[x]!=tempmnp1.split(",")[POS1][x]:
-                        #print(list1)
-                        list1+=[tempword,int(tempbase1)+x,tempbases1[x],tempmnp1.split(",")[POS1][x]]
+                    #print(POS1)
+                    #print(tempbase1)
+                    #print(tempmnp1.split(",")[POS1])
+                    #print(tempmnp1.split(",")[POS1][x])
+                    #print(x)
+                    #print(len(tempmnp1.split(",")[POS1][73]))
+                    if x<len(tempmnp1.split(",")[POS1]):
+                        if tempbases1[x]!=tempmnp1.split(",")[POS1][x]:
+                            #print(list1)
+                            list1+=[tempword,int(tempbase1)+x,tempbases1[x],tempmnp1.split(",")[POS1][x]]
             if list1!=[]:
                 if list1 not in totallist1:
                     #print(protein1)
                     #print(list1)
                     totallist1+=[list1]
                     #print(proteinlist1)
+                    #print([protein1])
                     proteinlist1+=[protein1]
                     tempaflist1+=[tempAF]
         #print(proteinlist1)
@@ -99,10 +109,13 @@ class extramnp:
                     #print(line.split()[1])
                     #print(line)
                     if item[0] == line.split()[0] and item[1] == int(line.split()[1]):
-                        truelist1=item
+                        #print(item)
+                        truelist1+=item
                         #print(proteinlist1[count])
+                        #print([proteinlist1[count]])
                         trueproteinlist1+=[proteinlist1[count]]
-                        truetempaflist1+=[tempaflist1[count]]
+                        #print(tempaflist1[count])
+                        truetempaflist1=[tempaflist1[count]]
             count+=1
         #print(truelist1)
         #print(truetempaflist1)
@@ -202,6 +215,9 @@ class extramnp:
         #print(finallist1)
         finallist1=[]
         #print(prodict1)
+        #print(truetempaflist1)
+        #print(prodict1)
+        #print(BASEAAPOSdicMNP)
         for item in BASEAAPOSdicMNP:
             #print(item)
             #print(basechangedic2[item[0],int(item[1])].split(",")[0].strip("\'").strip())
@@ -212,11 +228,14 @@ class extramnp:
             finallist1+=[basechangedic2[item[0],int(item[1])].split(",")[0].strip("\'").strip()]
             finallist1+=[basechangedic2[item[0],int(item[1])].split(",")[1].strip().strip("\'")]
             finallist1+=[BASEAAPOSdicMNP[item[0],int(item[1])]]
+            #print(item2)
             for item2 in prodict1:
                 #print(prodict1[item2])
                 #print(BASEAAPOSdicMNP[item[0],int(item[1])])
+                #print(BASEAAPOSdicMNP[item[0],int(item[1])])
+                #print(prodict1[item2])
                 if prodict1[item2]==BASEAAPOSdicMNP[item[0],int(item[1])]:
                     finallist1+=[item2]
             finallist1+=truetempaflist1
-        #print(finallist1)
+        print(finallist1)
         return finallist1
