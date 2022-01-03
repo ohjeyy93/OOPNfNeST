@@ -191,6 +191,7 @@ class extramnp:
         newpro1=""
         #print(trueproteinlist1)
         #print(trueproteinlist1)
+        newprodict1=[]
         for word in trueproteinlist1:
             #print(word)
             newpos1=""
@@ -199,6 +200,7 @@ class extramnp:
                     newpos1+=character
             #print(newpos1)
             #print(word[2::].replace(newpos1,""))
+            #print(word[2::].replace(newpos1,""))
             for character in word[2::].replace(newpos1,""):
                 testcount+=1
                 newpro1+=character
@@ -206,12 +208,15 @@ class extramnp:
                     #print(newpro1)
                     testcount2+=1
                     if testcount>0:
-                        prodict1[newpro1]=int(newpos1)+testcount2-1
+                        #print(newpro1)
+                        #print(newpos1)
+                        newprodict1+=[[newpro1,int(newpos1)+testcount2-1]]
                     if len(word[2::].replace(newpos1,""))/3/2==testcount2:
                         testcount2=0
                     newpro1=""
                 #testcount+=1
         #print(prodict1)
+        #print(newprodict1)
         #print(finallist1)
         finallist1=[]
         #print(prodict1)
@@ -229,13 +234,19 @@ class extramnp:
             finallist1+=[basechangedic2[item[0],int(item[1])].split(",")[1].strip().strip("\'")]
             finallist1+=[BASEAAPOSdicMNP[item[0],int(item[1])]]
             #print(item2)
-            for item2 in prodict1:
+            dictran={}
+            for item2 in newprodict1:
                 #print(prodict1[item2])
                 #print(BASEAAPOSdicMNP[item[0],int(item[1])])
                 #print(BASEAAPOSdicMNP[item[0],int(item[1])])
                 #print(prodict1[item2])
-                if prodict1[item2]==BASEAAPOSdicMNP[item[0],int(item[1])]:
-                    finallist1+=[item2]
+                #print(item2)
+                #print(BASEAAPOSdicMNP[item[0],int(item[1])])
+                if item2[1]==BASEAAPOSdicMNP[item[0],int(item[1])]:
+                    #print([item2])
+                    if item2[0] not in dictran:
+                        finallist1+=[item2[0]]
+                    dictran[item2[0]]=0
             finallist1+=truetempaflist1
         print(finallist1)
         return finallist1
